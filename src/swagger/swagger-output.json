@@ -1,0 +1,616 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API para aluguel de carros",
+    "description": "API para a disciplina de Serviços Web"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:undefined"
+    }
+  ],
+  "paths": {
+    "/pessoa": {
+      "get": {
+        "tags": [
+          "Pessoa"
+        ],
+        "summary": "Listar clientes cadastrados",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Pessoa"
+        ],
+        "summary": "Cadastrar novo cliente",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  },
+                  "senha": {
+                    "example": "any"
+                  },
+                  "cpf": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pessoa/{id}": {
+      "get": {
+        "tags": [
+          "Pessoa"
+        ],
+        "summary": "Buscar cliente por ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pessoa"
+        ],
+        "summary": "Excluir registro de cliente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/agencia": {
+      "get": {
+        "tags": [
+          "Agência"
+        ],
+        "summary": "Listar todas as agências",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Agência"
+        ],
+        "summary": "Cadastrar nova agência",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "example": "any"
+                  },
+                  "logradouro": {
+                    "example": "any"
+                  },
+                  "cidade": {
+                    "example": "any"
+                  },
+                  "uf": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agencia/{id}": {
+      "get": {
+        "tags": [
+          "Agência"
+        ],
+        "summary": "Obter detalhes de uma agência",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Agência"
+        ],
+        "summary": "Excluir registro de agência",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/carro/disponiveis": {
+      "get": {
+        "tags": [
+          "Carro"
+        ],
+        "summary": "Listar apenas carros disponíveis",
+        "description": "Retorna uma lista de todos os veículos que possuem o status \"disponivel\".",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/carro": {
+      "post": {
+        "tags": [
+          "Carro"
+        ],
+        "summary": "Cadastrar novo veículo",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "modelo": {
+                    "example": "any"
+                  },
+                  "placa": {
+                    "example": "any"
+                  },
+                  "km_atual": {
+                    "example": "any"
+                  },
+                  "status": {
+                    "example": "any"
+                  },
+                  "agenciaId": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Carro"
+        ],
+        "summary": "Listar todos os carros",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/carro/{id}": {
+      "get": {
+        "tags": [
+          "Carro"
+        ],
+        "summary": "Obter detalhes de um carro",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Carros"
+        ],
+        "summary": "Atualizar dados de um veículo",
+        "description": "Permite alterar modelo, placa, km_atual e status do veículo.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Carro"
+        ],
+        "summary": "Excluir registro de carro",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/aluguel": {
+      "get": {
+        "tags": [
+          "Aluguel"
+        ],
+        "summary": "Listar todos os aluguéis",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Aluguel"
+        ],
+        "summary": "Realizar retirada de veículo",
+        "description": "Cria um novo registro de aluguel com status \"aberto\". Esta operação valida se o carro e o cliente existem e se o veículo está com status \"disponivel\". Após a criação, o status do veículo é alterado automaticamente para \"alugado\".",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pessoaId": {
+                    "example": "any"
+                  },
+                  "carroId": {
+                    "example": "any"
+                  },
+                  "agenciaRetiradaId": {
+                    "example": "any"
+                  },
+                  "km_inicial": {
+                    "example": "any"
+                  },
+                  "data_retirada": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/aluguel/finalizar/{id}": {
+      "put": {
+        "tags": [
+          "Aluguel"
+        ],
+        "summary": "Registrar devolução de veículo",
+        "description": "Encerra um contrato de aluguel ativo. A rota calcula (ou recebe) o KM final e o valor total. Ao finalizar, o status do contrato muda para \"finalizado\", a agência de devolução é registrada e o veículo retorna ao status \"disponivel\", atualizando sua quilometragem atual.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "agenciaDevolucaoId": {
+                    "example": "any"
+                  },
+                  "km_final": {
+                    "example": "any"
+                  },
+                  "valor_total": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/aluguel/{id}": {
+      "get": {
+        "tags": [
+          "Aluguel"
+        ],
+        "summary": "Obter detalhes de um aluguel",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Aluguel"
+        ],
+        "summary": "Excluir registro de aluguel",
+        "description": "Exclui o registro de aluguel do banco de dados. Caso o aluguel ainda esteja com status \"aberto\", o sistema realiza o estorno do status do veículo associado para \"disponivel\" antes de deletar o contrato.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "Realizar login",
+        "description": "Valida as credenciais do usuário e gera um token com validade de 30 minutos.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "any"
+                  },
+                  "senha": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

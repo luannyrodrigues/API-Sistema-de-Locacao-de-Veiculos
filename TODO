@@ -1,0 +1,5 @@
+TODO Adicionar outras rotas no index.js
+TODO Adicionar models de Carro e Aluguel, e CRUD correspondente (copiar e colar)
+TODO Adicionar método de aluguel, retirada, e devolução (Patch provavelmente)
+TODO Adicionar PATCH
+TODO Adicionar JWT
