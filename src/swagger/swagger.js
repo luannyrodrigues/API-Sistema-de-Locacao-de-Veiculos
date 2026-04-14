@@ -8,6 +8,14 @@ const doc = {
     title: "API para aluguel de carros",
     description: "API para a disciplina de Serviços Web",
   },
+  securityDefinitions: {
+    apiKeyAuth: {
+      type: 'apiKey',
+      in: 'header',      
+      name: 'Authorization',
+      description: 'Digite o token no formato: Bearer <seu_token>'
+    },
+  },
   servers: [
     {
       url: `http://localhost:${process.env.PORT}`,

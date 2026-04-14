@@ -67,7 +67,7 @@ const AluguelController = {
       
       const result = await aluguelService.excluirAluguel(id);
 
-      return res.status(200).json(result);
+      return res.status(204).json(result);
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }

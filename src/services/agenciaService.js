@@ -15,6 +15,13 @@ class AgenciaService {
     return agencia;
   }
 
+  async updateAgencia(id, dadosAtualizados) {
+    const agencia = await Agencia.findByPk(id);
+    if (!agencia) throw new Error("Agência não encontrada");
+
+    return await agencia.update(dadosAtualizados);
+  }
+
   async removeAgencia(id) {
     return await Agencia.destroy({ where: { id } });
   }

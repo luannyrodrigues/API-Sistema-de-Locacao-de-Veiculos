@@ -2,22 +2,31 @@ const jwt = require('jsonwebtoken');
 const SECRET = process.env.JWT_SECRET;
 
 function verificarToken(req, res, next) {
-    const token = req.headers['authorization'];
+    const authHeader = req.headers['authorization'];
 
-    if (!token) {
+    if (!authHeader) {
         return res.status(401).json({ error: "Token não fornecido." });
     }
 
-    const splitToken = token.split(' ')[1];
+    const token = authHeader.split(' ')[1];
 
-    jwt.verify(splitToken, SECRET, (err, decoded) => {
+    jwt.verify(token, SECRET, (err, decoded) => {
         if (err) {
-            return res.status(403).json({ error: "Token inválido ou expirado." });
+            console.log("Erro detalhado do JWT:", err.message); 
+            return res.status(403).json({ error: "Token inválido." });
         }
-
+        
         req.usuarioId = decoded.id;
-        next(); 
+        req.usuarioTipo = decoded.tipo; 
+        next();
     });
 }
 
-module.exports = verificarToken;
+function verificarAdmin(req, res, next) {
+    if (req.usuarioTipo !== 'admin') {
+        return res.status(403).json({ error: "Acesso negado. Rota exclusiva para administradores." });
+    }
+    next();
+}
+
+module.exports = { verificarToken, verificarAdmin };

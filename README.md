@@ -2,6 +2,20 @@
 
 Este projeto consiste em uma API RESTful desenvolvida para a disciplina de Serviços Web, simulando o backend de um sistema de locação de veículos. A aplicação gerencia o fluxo completo de aluguel, desde a autenticação do usuário até a devolução do automóvel.
 
+## Recursos
+
+* **Pessoa**: Quem aluga o carro. Possui credenciais de identificação.
+* **Agência**: Representa o local onde os veículos estão alocados e podem ser devolvidos.
+* **Carro**: Veículo que será alugado.
+* **Aluguel**: Armazena o histórico e estado atual das locações. 
+* **Login**: Responsável pela autenticação que permite acesso às rotas protegidas. 
+
+## Relacionamentos 
+
+* **Agência (1:N) Carro**: Cada veículo pertence obrigatoriamente a uma agência específica.
+* **Pessoa (1:N) Aluguel**: Um cliente pode ter um histórico de vários aluguéis.
+* **Carro (1:N) Aluguel**: Pode estar relacionado a apenas um aluguel ativo por vez.
+* **Agência (1:N) Aluguel**: Vincula retirada ou devolução de carros a apenas uma agência.
 
 ## Ferramentas Utilizadas
 
@@ -11,24 +25,6 @@ Este projeto consiste em uma API RESTful desenvolvida para a disciplina de Servi
 * **JWT (JSON Web Token):** Mecanismo de autenticação stateless para proteção de rotas sensíveis.
 * **Swagger (OpenAPI):** Geração automática de documentação e interface de testes das rotas.
 * **Dotenv:** Gerenciamento de variáveis de ambiente (segurança de chaves e portas).
-
-
-## Organização das Pastas
-
-O projeto segue o padrão **MVC** (Model-View-Controller) adaptado para API:
-
-```
-src/          
-├── controllers/        # Lógica de recebimento de requisições e resposta HTTP
-├── middlewares/        # Validação de Token JWT
-├── models/             # Definição das tabelas e esquemas do banco (Sequelize)
-├── routes/             # Definição dos endpoints e verbos HTTP
-├── services/           # Regras de negócio
-├── db.js               # Instância de conexão com o banco
-└── index.js            # Servidor
-swagger/                # Script de configuração do Swagger
-.env                    # Chaves de segurança e credenciais
-```
 
 ## Como executar
 
@@ -47,7 +43,7 @@ JWT_SECRET=sua_chave_secreta
 ```
 3. Criar o banco de dados na máquina local com o mesmo nome que foi definido na variável DB_NAME.
 
-4. Iniciar servidor e gerar documentação:
+4. Para iniciar o servidor, criar as tabelas automaticamente e gerar documentação, execute o comando:
 
 ``` npm run dev ```
 
@@ -59,5 +55,17 @@ http://localhost:3000/docs
 
 ## Testes das rotas - Postman
 
-1. Importar: Abra o Postman e importe o arquivo `Aluguel_Carros.postman_collection.json`.
-2. Ambiente: Certifique-se de criar uma variável global para armazenar a url base ([http//localhost/3000/api](http://localhost:3000/api))
+1. No Postman, importe o arquivo `Aluguel_Carros.postman_collection.json`.
+2. Clique em Environments (menu lateral esquerdo) e crie um novo ambiente chamado "Locadora"
+3. Crie uma variável global para armazenar a url base:
+``` baseUrl = [http//localhost/3000/api](http://localhost:3000/api) ```
+4. Crie as seguintes variáveis sem atribuir valor inicial:
+``` token, pessoa_id, agencia_id, carro_id, aluguel_id, email, senha ``` 
+
+Cada requisição possui um script na aba Post-response, que gerencia o fluxo de testes. Para executar os testes:
+
+1. Certifique-se de que o ambiente Locadora está selecionado.
+2. Selecione a pasta "Fluxo"
+3. Clique no botão Run.
+
+![Resultado da execução do fluxo de testes](fluxo.png)

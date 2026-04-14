@@ -29,10 +29,22 @@ const AgenciaController = {
     }
   },
 
+  async updateAgencia(req, res) {
+    try {
+      const { id } = req.params;
+      const dados = req.body;
+      const agenciaAtualizada = await agenciaService.updateAgencia(id, dados);
+      
+      return res.status(200).json(agenciaAtualizada);
+    } catch (error) {
+      return res.status(400).json({ error: error.message });
+    }
+  },
+
   async deleteAgencia(req, res) {
     try {
       await agenciaService.removeAgencia(req.params.id);
-      return res.status(200).send();
+      return res.status(204).send();
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }

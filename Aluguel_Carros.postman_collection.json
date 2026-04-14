@@ -7,505 +7,1279 @@
   },
   "item": [
     {
-      "name": "Pessoa Create",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"nome\": \"Maria\",\r\n    \"email\": \"maria@gmail.com\",\r\n    \"senha\": \"senha\",\r\n    \"cpf\": \"12345678901\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "Pessoa",
+      "item": [
+        {
+          "name": "Pessoa - GetById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pessoa/4",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pessoa",
+                "4"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "{{baseUrl}}/pessoa",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "pessoa"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Pessoa - Get",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/pessoa",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "pessoa"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Pessoa - GetById",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/pessoa/4",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "pessoa",
-            "4"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Pessoa - Delete",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/pessoa/3",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "pessoa",
-            "3"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Carro - Create",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"modelo\": \"Fiat Uno\",\r\n    \"placa\": \"DEF-5678\",\r\n    \"km_atual\": 0,\r\n    \"agenciaId\": 2\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/carro",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "carro"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Carro - Get",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/carro",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "carro"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Carro - Get Disponíveis",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"modelo\": \"cruze\",\r\n    \"placa\": \"IUI-4074\",\r\n    \"km_atual\": 60,\r\n    \"status\": \"disponivel\",\r\n    \"agenciaId\": 1\r\n}"
-        },
-        "url": {
-          "raw": "{{baseUrl}}/carro/disponiveis",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "carro",
-            "disponiveis"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Carro - GetById",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/carro/2",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "carro",
-            "2"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Carro - Atualizar",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"modelo\": \"Chevrolet Cruze\",\r\n    \"placa\": \"ABC-1234\",\r\n    \"km_atual\": 60,\r\n    \"status\": \"disponivel\",\r\n    \"agenciaId\": 1\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/carro/1",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "carro",
-            "1"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Carro - Delete",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/carro/1",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "carro",
-            "1"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Agencia - Create",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"nome\": \"Agencia cinco\",\r\n    \"logradouro\": \"Av. Brasil, 999\",\r\n    \"cidade\": \"Passo Fundo\",\r\n    \"uf\": \"RS\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/agencia",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "agencia"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Agencia - Get",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/agencia",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "agencia"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Agencia - GetById",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/agencia",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "agencia"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Agencia - Delete",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/agencia/1",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "agencia",
-            "1"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Aluguel - Create",
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
+        {
+          "name": "Pessoa - Get",
+          "event": [
             {
-              "key": "token",
-              "value": "{{token}}",
-              "type": "string"
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
             }
-          ]
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"pessoaId\": 4,\r\n    \"carroId\": 3,\r\n    \"agenciaRetiradaId\": 2\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pessoa",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pessoa"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "{{baseUrl}}/aluguel",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "aluguel"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Aluguel - Get",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/aluguel",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "aluguel"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Aluguel - GetById",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/aluguel",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "aluguel"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Aluguel - Delete",
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
+        {
+          "name": "Pessoa - Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pessoa/5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pessoa",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pessoa Create",
+          "event": [
             {
-              "key": "token",
-              "value": "{{token}}",
-              "type": "string"
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {\r",
+                  "    const res = pm.response.json();\r",
+                  "    pm.environment.set(\"pessoa_id\", res.id); \r",
+                  "    pm.environment.set(\"email\", requestData.email);\r",
+                  "    pm.environment.set(\"senha\", requestData.senha);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
             }
-          ]
-        },
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/aluguel/4",
-          "host": [
-            "{{baseUrl}}"
           ],
-          "path": [
-            "aluguel",
-            "4"
-          ]
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"Paulo\",\r\n    \"email\": \"paulo@gmail.com\",\r\n    \"senha\": \"password\",\r\n    \"cpf\": \"12345677771\",\r\n    \"tipo\": \"admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pessoa",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pessoa"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "Aluguel - Devolução",
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
+      "name": "Carros",
+      "item": [
+        {
+          "name": "Carro - Create",
+          "event": [
             {
-              "key": "token",
-              "value": "{{token}}",
-              "type": "string"
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {\r",
+                  "    pm.environment.set(\"carro_id\", pm.response.json().id);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
             }
-          ]
-        },
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"agenciaDevolucaoId\": 2,\r\n    \"km_final\": 130,\r\n    \"valor_total\" : 300.00\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/aluguel/finalizar/5",
-          "host": [
-            "{{baseUrl}}"
           ],
-          "path": [
-            "aluguel",
-            "finalizar",
-            "5"
-          ]
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"modelo\": \"BYD Dolphin\",\r\n    \"placa\": \"SUS-5218\",\r\n    \"km_atual\": 0,\r\n    \"agenciaId\": {{agencia_id}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carro",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Carro - Get",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/carro",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Carro - Get Disponíveis",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"modelo\": \"cruze\",\r\n    \"placa\": \"IUI-4074\",\r\n    \"km_atual\": 60,\r\n    \"status\": \"disponivel\",\r\n    \"agenciaId\": 1\r\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carro/disponiveis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carro",
+                "disponiveis"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Carro - GetById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/carro/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carro",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Carro - Atualizar",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Carro atualizado com sucesso\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"modelo\": \"Chevrolet Cruze\",\r\n    \"placa\": \"ABC-1234\",\r\n    \"km_atual\": 60,\r\n    \"status\": \"disponivel\",\r\n    \"agenciaId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carro/{{carro_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carro",
+                "{{carro_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Carro - Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carro/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carro",
+                "1"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "Login - Create",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"email\": \"maria@gmail.com\",\r\n    \"senha\": \"senha\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "Agências",
+      "item": [
+        {
+          "name": "Agencia - Get",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agencia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agencia"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "{{baseUrl}}/login",
-          "host": [
-            "{{baseUrl}}"
+        {
+          "name": "Agencia - GetById",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agencia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agencia"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Agencia - Create",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {\r",
+                  "    const res = pm.response.json();\r",
+                  "    pm.environment.set(\"agencia_id\", res.id);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
           ],
-          "path": [
-            "login"
-          ]
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"Agencia cinco\",\r\n    \"logradouro\": \"Av. Brasil, 999\",\r\n    \"cidade\": \"Passo Fundo\",\r\n    \"uf\": \"RS\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agencia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agencia"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Agencia - Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agencia/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agencia",
+                "1"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
+    },
+    {
+      "name": "Aluguel",
+      "item": [
+        {
+          "name": "Aluguel - Get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aluguel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aluguel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Aluguel - GetById",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/aluguel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aluguel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Aluguel - Create",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {\r",
+                  "    pm.environment.set(\"aluguel_id\", pm.response.json().id);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"pessoaId\": {{pessoa_id}},\r\n  \"carroId\": {{carro_id}},\r\n  \"agenciaId\": {{agencia_id}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/aluguel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aluguel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Aluguel - Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aluguel/4",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aluguel",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Aluguel - Devolução",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"agenciaDevolucaoId\": {{agencia_id}},\r\n    \"km_final\": 130,\r\n    \"valor_total\" : 1000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/aluguel/finalizar/{{aluguel_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aluguel",
+                "finalizar",
+                "{{aluguel_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "item": [
+        {
+          "name": "Login - Create",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {\r",
+                  "    const resposta = pm.response.json();\r",
+                  "    \r",
+                  "    pm.environment.set(\"token\", resposta.token);\r",
+                  "    \r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": {{email}},\r\n    \"senha\": {{senha}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Fluxo",
+      "item": [
+        {
+          "name": "Pessoa Create Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {\r",
+                  "    const res = pm.response.json();\r",
+                  "    pm.environment.set(\"pessoa_id\", res.id); \r",
+                  "    const dadosEnviados = JSON.parse(pm.request.body.raw);\r",
+                  "    \r",
+                  "    pm.environment.set(\"email\", dadosEnviados.email);\r",
+                  "    pm.environment.set(\"senha\", dadosEnviados.senha);\r",
+                  "\r",
+                  "    pm.test(\"Usuário criado e credenciais salvas\", function () {\r",
+                  "        pm.expect(res.id).to.exist;\r",
+                  "    });\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"Paulo\",\r\n    \"email\": \"paulo@gmail.com\",\r\n    \"senha\": \"password\",\r\n    \"cpf\": \"12345677771\",\r\n    \"tipo\": \"admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pessoa",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pessoa"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - Create Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Teste para verificar se o Login funcionou\r",
+                  "pm.test(\"Login realizado com sucesso\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Token recebido e armazenado\", function () {\r",
+                  "    const resposta = pm.response.json();\r",
+                  "    \r",
+                  "    pm.expect(resposta.token).to.not.be.undefined;\r",
+                  "    \r",
+                  "    pm.environment.set(\"token\", resposta.token);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"senha\": \"{{senha}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Agencia - Create Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Agência criada com sucesso e ID armazenado\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "\r",
+                  "    const res = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(res.id).to.not.be.undefined;\r",
+                  "    pm.environment.set(\"agencia_id\", res.id);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"Agencia seis\",\r\n    \"logradouro\": \"Av. Brasil, 1060\",\r\n    \"cidade\": \"Passo Fundo\",\r\n    \"uf\": \"RS\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agencia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agencia"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Carro - Create Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Carro criado com sucesso e ID armazenado\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "    const res = pm.response.json();\r",
+                  "    pm.expect(res.id).to.not.be.undefined;\r",
+                  "    pm.expect(res.agenciaId).to.eql(pm.environment.get(\"agencia_id\"));\r",
+                  "\r",
+                  "    pm.environment.set(\"carro_id\", res.id);\r",
+                  "\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"modelo\": \"BYD Dolphin\",\r\n    \"placa\": \"SUS-5218\",\r\n    \"km_atual\": 0,\r\n    \"agenciaId\": \"{{agencia_id}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carro",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Carro - Atualizar Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Carro atualizado com sucesso\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "\r",
+                  "    const res = pm.response.json();\r",
+                  "\r",
+                  "    pm.test(\"Os dados retornados são consistentes\", () => {\r",
+                  "        pm.expect(res).to.be.an('object');\r",
+                  "        pm.expect(res.id).to.eql(pm.environment.get(\"carro_id\"));\r",
+                  "    });\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"km_atual\": 30\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carro/{{carro_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carro",
+                "{{carro_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Aluguel - Create Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Aluguel criado com sucesso\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "\r",
+                  "    const res = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(res.id).to.not.be.undefined;\r",
+                  "\r",
+                  "    pm.test(\"IDs de vínculo estão corretos\", () => {\r",
+                  "        pm.expect(res.carroId).to.eql(Number(pm.environment.get(\"carro_id\")));\r",
+                  "        pm.expect(res.pessoaId).to.eql(Number(pm.environment.get(\"pessoa_id\")));\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.environment.set(\"aluguel_id\", res.id);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"pessoaId\": \"{{pessoa_id}}\",\r\n  \"carroId\": \"{{carro_id}}\",\r\n  \"agenciaRetiradaId\": \"{{agencia_id}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/aluguel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aluguel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Aluguel - Devolução Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Devolução realizada com sucesso\", function () {\r",
+                  "    // 1. Valida o status 200 (ou 204 se não retornar corpo)\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "\r",
+                  "    const res = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(res.status).equals(\"finalizado\");\r",
+                  "\r",
+                  "    pm.test(\"O aluguel encerrado é o correto\", () => {\r",
+                  "        pm.expect(res.id).to.eql(Number(pm.environment.get(\"aluguel_id\")));\r",
+                  "    });\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"agenciaDevolucaoId\": \"{{agencia_id}}\",\r\n    \"km_final\": 130,\r\n    \"valor_total\" : 1000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/aluguel/finalizar/{{aluguel_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aluguel",
+                "finalizar",
+                "{{aluguel_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Aluguel - Delete Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Registro de Aluguel excluído\", function () {\r",
+                  "    pm.response.to.have.status(204); \r",
+                  "    pm.environment.unset(\"aluguel_id\"); \r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aluguel/{{aluguel_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aluguel",
+                "{{aluguel_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Carro - Delete Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Carro excluído com sucesso\", function () {\r",
+                  "    pm.response.to.have.status(204);\r",
+                  "    pm.environment.unset(\"carro_id\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carro/{{carro_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "carro",
+                "{{carro_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Agencia - Delete Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Agência excluída com sucesso\", function () {\r",
+                  "    pm.response.to.have.status(204);\r",
+                  "    pm.environment.unset(\"agencia_id\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agencia/{{agencia_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agencia",
+                "{{agencia_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pessoa - Delete Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Usuário excluído com sucesso\", function () {\r",
+                  "    pm.response.to.have.status(204);\r",
+                  "    pm.environment.unset(\"pessoa_id\");\r",
+                  "    pm.environment.unset(\"user_email\");\r",
+                  "    pm.environment.unset(\"user_password\");\r",
+                  "    pm.environment.unset(\"token_jwt\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pessoa/{{pessoa_id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pessoa",
+                "{{pessoa_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "event": [

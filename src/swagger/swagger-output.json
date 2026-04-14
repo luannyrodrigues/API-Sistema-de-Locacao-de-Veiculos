@@ -16,22 +16,42 @@
         "tags": [
           "Pessoa"
         ],
-        "summary": "Listar clientes cadastrados",
-        "description": "",
+        "summary": "Listar todos os usuários cadastrados",
+        "description": "Apenas administradores podem listar todos os usuários.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
           "Pessoa"
         ],
-        "summary": "Cadastrar novo cliente",
+        "summary": "Cadastrar novo usuário",
         "description": "",
         "responses": {
           "201": {
@@ -58,6 +78,9 @@
                   },
                   "cpf": {
                     "example": "any"
+                  },
+                  "tipo": {
+                    "example": "any"
                   }
                 }
               }
@@ -71,13 +94,20 @@
         "tags": [
           "Pessoa"
         ],
-        "summary": "Buscar cliente por ID",
-        "description": "",
+        "summary": "Buscar usuário por ID",
+        "description": "Usuários podem ver seus próprios dados ou Admins podem ver de qualquer um.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
             "schema": {
               "type": "string"
             }
@@ -87,8 +117,76 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "404": {
             "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Pessoa"
+        ],
+        "summary": "Atualizar dados de um usuário",
+        "description": "Clientes podem atualizar seus próprios dados. Admins podem atualizar qualquer usuário.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tipo": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -96,7 +194,7 @@
         "tags": [
           "Pessoa"
         ],
-        "summary": "Excluir registro de cliente",
+        "summary": "Excluir registro de usuário",
         "description": "",
         "parameters": [
           {
@@ -106,16 +204,34 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
       }
     },
     "/agencia": {
@@ -140,9 +256,24 @@
         ],
         "summary": "Cadastrar nova agência",
         "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
@@ -199,6 +330,49 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "Agência"
+        ],
+        "summary": "Atualizar dados de uma agência",
+        "description": "Altera informações como nome, logradouro ou cidade de uma agência específica.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      },
       "delete": {
         "tags": [
           "Agência"
@@ -213,11 +387,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
@@ -328,7 +515,7 @@
       },
       "put": {
         "tags": [
-          "Carros"
+          "Carro"
         ],
         "summary": "Atualizar dados de um veículo",
         "description": "Permite alterar modelo, placa, km_atual e status do veículo.",
@@ -422,6 +609,11 @@
             "description": "Forbidden"
           }
         },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -488,6 +680,11 @@
             "description": "Forbidden"
           }
         },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -560,8 +757,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request"
@@ -572,7 +769,12 @@
           "403": {
             "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
       }
     },
     "/login": {
@@ -610,6 +812,16 @@
             }
           }
         }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Digite o token no formato: Bearer <seu_token>"
       }
     }
   }

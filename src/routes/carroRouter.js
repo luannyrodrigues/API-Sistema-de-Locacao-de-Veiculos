@@ -29,7 +29,7 @@ carroRouter.get(
 
 carroRouter.put(
     "/carro/:id",
-    // #swagger.tags = ['Carros']
+    // #swagger.tags = ['Carro']
     // #swagger.summary = 'Atualizar dados de um veículo'
     // #swagger.description = 'Permite alterar modelo, placa, km_atual e status do veículo.'
     carroController.updateCarro

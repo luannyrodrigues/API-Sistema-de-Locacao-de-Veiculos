@@ -13,7 +13,8 @@ const authController = {
             const payload = { 
                 id: pessoa.id, 
                 nome: pessoa.nome,
-                email: pessoa.email 
+                email: pessoa.email,
+                tipo: pessoa.tipo 
             };
 
             const token = jwt.sign(payload, process.env.JWT_SECRET || "sua_chave_secreta", {
@@ -23,7 +24,7 @@ const authController = {
             return res.status(200).json({
                 auth: true,
                 token: token,
-                user: { nome: pessoa.nome, email: pessoa.email }
+                user: { nome: pessoa.nome, email: pessoa.email, tipo: pessoa.tipo }
             });
 
         } catch (error) {

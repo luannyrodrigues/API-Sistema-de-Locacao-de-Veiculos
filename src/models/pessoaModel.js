@@ -20,6 +20,10 @@ const Pessoa = sequelize.define(
     },
     cpf: {
       type: DataTypes.STRING, allowNull: false
+    },
+    tipo: {
+      type: DataTypes.ENUM('admin', 'cliente'),
+      allowNull: false
     }
   },
   {

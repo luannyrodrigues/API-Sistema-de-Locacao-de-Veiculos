@@ -1,27 +1,52 @@
 const express = require("express");
 const pessoaRouter = express.Router();
 const pessoaController = require("../controllers/pessoaController");
+const { verificarToken, verificarAdmin } = require('../middlewares/authMiddleware');
 
 pessoaRouter.get(
-    //#swagger.summary = 'Listar clientes cadastrados'
+    "/pessoa", 
+    verificarToken,
     // #swagger.tags = ['Pessoa']
-    "/pessoa", pessoaController.getAllPessoas
+    // #swagger.summary = 'Listar todos os usuários cadastrados'
+    // #swagger.description = 'Apenas administradores podem listar todos os usuários.'
+    // #swagger.security = [{ "apiKeyAuth": [] }]
+    pessoaController.getAllPessoas
 );
+
 pessoaRouter.get(
-    //#swagger.summary = 'Buscar cliente por ID'
+    "/pessoa/:id", 
+    verificarToken,
     // #swagger.tags = ['Pessoa']
-    "/pessoa/:id", pessoaController.getPessoaById
+    // #swagger.summary = 'Buscar usuário por ID'
+    // #swagger.description = 'Usuários podem ver seus próprios dados ou Admins podem ver de qualquer um.'
+    // #swagger.security = [{ "apiKeyAuth": [] }]
+    pessoaController.getPessoaById
 );
+
 pessoaRouter.post(
-    //#swagger.summary = 'Cadastrar novo cliente'
+    "/pessoa", 
     // #swagger.tags = ['Pessoa']
-    "/pessoa", pessoaController.addPessoa
-
+    // #swagger.summary = 'Cadastrar novo usuário'
+    pessoaController.addPessoa
 );
-pessoaRouter.delete(
-    //#swagger.summary = 'Excluir registro de cliente'
+
+pessoaRouter.put(
+    "/pessoa/:id", 
+    verificarToken, 
     // #swagger.tags = ['Pessoa']
-    "/pessoa/:id", pessoaController.deletePessoa
+    // #swagger.summary = 'Atualizar dados de um usuário'
+    // #swagger.description = 'Clientes podem atualizar seus próprios dados. Admins podem atualizar qualquer usuário.'
+    // #swagger.security = [{ "apiKeyAuth": [] }]
+    pessoaController.update
+);
+
+pessoaRouter.delete(
+    "/pessoa/:id", 
+    verificarToken,
+    // #swagger.tags = ['Pessoa']
+    // #swagger.summary = 'Excluir registro de usuário'
+    // #swagger.security = [{ "apiKeyAuth": [] }]
+    pessoaController.deletePessoa
 );
 
 module.exports = pessoaRouter;
